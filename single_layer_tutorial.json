@@ -1,0 +1,102 @@
+{
+  "partition": [
+    {
+      "id": 0,
+      "ports": 1,
+      "batch_size": 1,
+      "input_node": "conv1_input",
+      "output_node": "single_layer/conv1/Relu:0",
+      "weights_reloading_factor": 1,
+      "weights_reloading_layer": "single_layer_conv1_Conv2D",
+      "layers": [
+        {
+          "name": "single_layer_conv1_Conv2D",
+          "streams_in": [
+            {
+              "name": "in",
+              "coarse": 1
+            }
+          ],
+          "streams_out": [
+            {
+              "name": "single_layer_conv1_Conv2D_single_layer_conv1_Relu",
+              "coarse": 1
+            }
+          ],
+          "parameters": {
+            "buffer_depth": 0,
+            "batch_size": 1,
+            "rows_in": 28,
+            "cols_in": 28,
+            "channels_in": 1,
+            "rows_out": 24,
+            "cols_out": 24,
+            "channels_out": 16,
+            "coarse_in": 1,
+            "coarse_out": 1,
+            "coarse_group": 1,
+            "groups": 1,
+            "fine": 1,
+            "filters": 16,
+            "pad_top": 0,
+            "pad_right": 0,
+            "pad_left": 0,
+            "pad_bottom": 0,
+            "kernel_size": [
+              5,
+              5
+            ],
+            "stride": [
+              1,
+              1
+            ],
+            "data_width": 16,
+            "weight_width": 16,
+            "acc_width": 16,
+            "input_width": 16,
+            "output_width": 16,
+            "has_bias": 0,
+            "biases_width": 16
+          },
+          "node_in": "single_layer_conv1_Conv2D",
+          "node_out": "single_layer_conv1_Relu",
+          "type": "CONVOLUTION",
+          "weights_path": "single_layer/conv1/Conv2D/ReadVariableOp:0",
+          "bias_path": ""
+        },
+        {
+          "name": "single_layer_conv1_Relu",
+          "streams_in": [
+            {
+              "name": "single_layer_conv1_Conv2D_single_layer_conv1_Relu",
+              "coarse": 1
+            }
+          ],
+          "streams_out": [
+            {
+              "name": "out",
+              "coarse": 1
+            }
+          ],
+          "parameters": {
+            "buffer_depth": 0,
+            "batch_size": 1,
+            "rows_in": 24,
+            "cols_in": 24,
+            "channels_in": 16,
+            "rows_out": 24,
+            "cols_out": 24,
+            "channels_out": 16,
+            "coarse_in": 1,
+            "coarse_out": 1,
+            "coarse": 1,
+            "data_width": 16
+          },
+          "node_in": "single_layer_conv1_Conv2D",
+          "node_out": "single_layer_conv1_Relu",
+          "type": "RELU"
+        }
+      ]
+    }
+  ]
+}
